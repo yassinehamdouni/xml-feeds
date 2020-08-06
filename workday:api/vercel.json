@@ -1,0 +1,13 @@
+{
+  "builds": [{ "src": ".py", "use": "@vercel/python"}],
+  "routes": [
+    {
+      "src": "/workday/(?<id>[^/]+)",
+      "dest": "/src/workday.py"
+    },
+    { "src": "/(.*)", "dest": "/" }
+  ],
+  "github": {
+    "silent": true
+  }
+}
