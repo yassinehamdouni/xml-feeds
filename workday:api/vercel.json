@@ -1,5 +1,5 @@
 {
-  "builds": [{ "src": ".py", "use": "@vercel/python"}],
+  "builds": [{ "src": "*.py", "use": "@vercel/python"}],
   "routes": [
     {
       "src": "/workday/(?<id>[^/]+)",
