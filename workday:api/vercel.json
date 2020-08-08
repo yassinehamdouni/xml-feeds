@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/workday/(?<id>[^/]+)",
-      "dest": "/src/workday.py/?id=$id"
+      "dest": "/src/workday.py?id=$id"
     },
     { "src": "/(.*)", "dest": "/" }
   ],
