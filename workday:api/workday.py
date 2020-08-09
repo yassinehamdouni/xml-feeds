@@ -20,7 +20,7 @@ class handler(BaseHTTPRequestHandler):
                 urlXml = ET.SubElement(jobXml, 'url')
                 urlXml.text = job["url"]
                 locationXml = ET.SubElement(jobXml, 'location')
-                locationXml.text = job["city"] + job["state"] + job["country"]
+                locationXml.text = job["city"] + ", " + job["state"] + ", " + job["country"]
 
                 # HTML Sanitizer
                 sanitizer = Sanitizer({
