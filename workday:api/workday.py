@@ -10,7 +10,7 @@ class handler(BaseHTTPRequestHandler):
         try:
             request_url = urlparse(self.requestline)
             r = requests.get(
-                f"https://apply.workable.com/api/v1/widget/accounts/{request_url.query}?details=true")
+                f"https://apply.workable.com/api/v1/widget/accounts/{request_url.query.split()[0]}?details=true")
             data = r.json()
             allJobsXml = ET.Element('jobs')
             for job in data["jobs"]:
