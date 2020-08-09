@@ -4,7 +4,7 @@ from http.server import BaseHTTPRequestHandler
 from html_sanitizer import Sanitizer
 
 
-class Handler(BaseHTTPRequestHandler):
+class handler(BaseHTTPRequestHandler):
     def get_feed(self):
         try:
             r = requests.get(
