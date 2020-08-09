@@ -1,3 +1,2 @@
 requests==2.24.0
-xml.etree.ElementTree
-html_sanitizer
+html_sanitizer==1.9.1
