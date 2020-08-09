@@ -5,7 +5,7 @@ from html_sanitizer import Sanitizer
 
 
 class handler(BaseHTTPRequestHandler):
-    def get_feed(self):
+    def do_GET(self):
         try:
             r = requests.get(
                 f"https://apply.workable.com/api/v1/widget/accounts/{self.path.split('/')[-1]}?details=true")
