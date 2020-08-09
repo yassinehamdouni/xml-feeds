@@ -2,13 +2,15 @@ import requests
 import xml.etree.ElementTree as ET
 from http.server import BaseHTTPRequestHandler
 from html_sanitizer import Sanitizer
+from urllib.parse import urlparse
 
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
+            request_url = urlparse(self.requestline)
             r = requests.get(
-                f"https://apply.workable.com/api/v1/widget/accounts/{self.path.split('/')[-1]}?details=true")
+                f"https://apply.workable.com/api/v1/widget/accounts/{request_url.query}?details=true")
             data = r.json()
             allJobsXml = ET.Element('jobs')
             for job in data["jobs"]:
