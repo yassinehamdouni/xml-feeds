@@ -50,7 +50,7 @@ class handler(BaseHTTPRequestHandler):
             self.send_response(500)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            message = f"<h1>Internal Error {requests_url.query}</h1><p>Sorry, there was a problem. Make sure the employer's name is " \
-                      "included in the request path.</p> "
+            message = "<h1>Internal Error</h1><p>Sorry, there was a problem. Make sure the employer's name is " \
+                      "included in the request path and / or the name is correct.</p> "
             self.wfile.write(message.encode())
             return
