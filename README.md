@@ -1,7 +1,7 @@
 # xml-feeds
-Generates an XML feed from each ATS (Applicant Tracking System) API so it can be automatically imported to a job board.
+Generates an XML feed from an ATS (Applicant Tracking System) API so as to automatically import jobs to a job board.
 
-<Currently works with:
+Currently exists for:
 <ul>
   <li><a href="https://workable.readme.io/docs/">Workable</a></li>
 </ul>
