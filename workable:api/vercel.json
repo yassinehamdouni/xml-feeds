@@ -2,8 +2,8 @@
   "builds": [{ "src": "*.py", "use": "@vercel/python"}],
   "routes": [
     {
-      "src": "/workday/(?<id>[^/]+)",
-      "dest": "/src/workday.py?id=$id"
+      "src": "/workable/(?<id>[^/]+)",
+      "dest": "/src/workable.py?id=$id"
     },
     { "src": "/(.*)", "dest": "/" }
   ],
