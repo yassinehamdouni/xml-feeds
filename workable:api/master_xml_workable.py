@@ -38,16 +38,16 @@ class handler(BaseHTTPRequestHandler):
                     idXml = ET.SubElement(jobXml, 'id')
                     idXml.text = job["shortcode"]
 
-                self.send_response(200)
-                self.send_header('Content-type', 'text/xml')
-                self.send_header(
-                    'Cache-Control',
-                    'public, immutable, no-transform, s-maxage=3600, max-age=3600'
-                )
-                self.end_headers()
-                message = ET.tostring(root_node)
-                self.wfile.write(message)
-                return
+            self.send_response(200)
+            self.send_header('Content-type', 'text/xml')
+            self.send_header(
+                'Cache-Control',
+                'public, immutable, no-transform, s-maxage=3600, max-age=3600'
+            )
+            self.end_headers()
+            message = ET.tostring(root_node)
+            self.wfile.write(message)
+            return
 
         except:
             self.send_response(500)
