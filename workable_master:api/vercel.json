@@ -2,7 +2,7 @@
   "builds": [{ "src": "*.py", "use": "@vercel/python"}],
   "routes": [
     {
-      "src": "/workable_master/(?<id>[^/]+)",
+      "src": "/workable/(?<id>[^/]+)",
       "dest": "/src/master_xml_workable.py?id=$id"
     },
     { "src": "/(.*)", "dest": "/" }
