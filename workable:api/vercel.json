@@ -5,6 +5,10 @@
       "src": "/workable/(?<id>[^/]+)",
       "dest": "/src/workable.py?id=$id"
     },
+    {
+      "src": "/workable_master/(?<id>[^/]+)",
+      "dest": "/src/master_xml_workable.py?id=$id" 
+    }
     { "src": "/(.*)", "dest": "/" }
   ],
   "github": {
