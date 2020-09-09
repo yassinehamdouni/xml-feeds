@@ -8,14 +8,13 @@ from urllib.parse import urlparse
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
-            root_node = ET.Element('root')
             request_url = urlparse(self.requestline)
             all_companies = request_url.query.split(',')   # Get all company names from URL
             for company in all_companies:
                 r = requests.get(
                     f"https://apply.workable.com/api/v1/widget/accounts/{company}?details=true")
                 data = r.json()
-                allJobsXml = ET.SubElement(root_node, 'jobs')
+                allJobsXml = ET.Element('jobs')
                 for job in data["jobs"]:
                     jobXml = ET.SubElement(allJobsXml, 'job')
                     titleXml = ET.SubElement(jobXml, 'title')
@@ -59,7 +58,7 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(message.encode())
             return
 
-    def do_HEAD(self):   # EDIT OR DELETE
+    def do_HEAD(self):   
         try:
             request_url = urlparse(self.requestline)
             all_companies = request_url.query.split(',')
