@@ -54,3 +54,20 @@ class handler(BaseHTTPRequestHandler):
                       "included in the request path and / or the name is correct.</p> "
             self.wfile.write(message.encode())
             return
+        
+    def do_HEAD(self):
+        try:
+            request_url = urlparse(self.requestline)
+            r = requests.get(
+                f"https://apply.workable.com/api/v1/widget/accounts/{request_url.query.split()[0]}?details=true")
+
+            self.send_response(r.status_code)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            return
+
+        except:
+            self.send_response(500)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            return  

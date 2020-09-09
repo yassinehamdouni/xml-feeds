@@ -1,0 +1,13 @@
+{
+  "builds": [{ "src": "*.py", "use": "@vercel/python"}],
+  "routes": [
+    {
+      "src": "/workable/(?<id>[^/]+)",
+      "dest": "/src/workable.py?id=$id"
+    },
+    { "src": "/(.*)", "dest": "/" }
+  ],
+  "github": {
+    "silent": true
+  }
+}
