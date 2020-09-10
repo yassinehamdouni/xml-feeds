@@ -45,7 +45,7 @@ class handler(BaseHTTPRequestHandler):
                 'public, immutable, no-transform, s-maxage=3600, max-age=3600'
             )
             self.end_headers()
-            message = ET.tostring(root_node)
+            message = ET.tostring(allJobsXml)
             self.wfile.write(message)
             return
 
