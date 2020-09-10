@@ -13,7 +13,7 @@ class handler(BaseHTTPRequestHandler):
             allJobsXml = ET.Element('jobs')
             for i in range(len(all_companies)):
                 r = requests.get(
-                    f"https://apply.workable.com/api/v1/widget/accounts/{all_companies[i]}?details=true")
+                    f"https://apply.workable.com/api/v1/widget/accounts/{all_companies[i].split()[0]}?details=true")
                 data = r.json()
                 for job in data["jobs"]:
                     jobXml = ET.SubElement(allJobsXml, 'job')
