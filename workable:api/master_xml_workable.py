@@ -11,16 +11,16 @@ class handler(BaseHTTPRequestHandler):
             request_url = urlparse(self.requestline)
             all_companies = request_url.query.split(',')   # Get all company names from URL
             allJobsXml = ET.Element('jobs')
-            for company in all_companies:
+            for i in range(len(all_companies)):
                 r = requests.get(
-                    f"https://apply.workable.com/api/v1/widget/accounts/{request_url.query.split()[0]}?details=true")
+                    f"https://apply.workable.com/api/v1/widget/accounts/{all_companies[i]}?details=true")
                 data = r.json()
                 for job in data["jobs"]:
                     jobXml = ET.SubElement(allJobsXml, 'job')
                     titleXml = ET.SubElement(jobXml, 'title')
                     titleXml.text = job["title"]
                     employerXml = ET.SubElement(allJobsXml, 'Employer Email')
-                    employerXml.text = f"team+{company}@climate.careers"
+                    employerXml.text = f"team+{all_companies[i]}@climate.careers"
                     urlXml = ET.SubElement(jobXml, 'url')
                     urlXml.text = job["url"]
                     locationXml = ET.SubElement(jobXml, 'location')
