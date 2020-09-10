@@ -14,7 +14,7 @@ class handler(BaseHTTPRequestHandler):
             for company in all_companies:
                 r = requests.get(
                     f"https://apply.workable.com/api/v1/widget/accounts/{company}?details=true")
-                self.wfile.write("made it here")
+                self.wfile.write(b"made it here")
                 data = r.json()
                 for job in data["jobs"]:
                     jobXml = ET.SubElement(allJobsXml, 'job')
