@@ -19,7 +19,7 @@ class handler(BaseHTTPRequestHandler):
                     jobXml = ET.SubElement(allJobsXml, 'job')
                     titleXml = ET.SubElement(jobXml, 'title')
                     titleXml.text = job["title"]
-                    employerXml = ET.SubElement(allJobsXml, 'Employer Email')
+                    employerXml = ET.SubElement(jobXml, 'Employer Email')
                     employerXml.text = f"team+{all_companies[i]}@climate.careers"
                     urlXml = ET.SubElement(jobXml, 'url')
                     urlXml.text = job["url"]
