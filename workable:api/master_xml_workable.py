@@ -55,7 +55,7 @@ class handler(BaseHTTPRequestHandler):
             self.end_headers()
             message = f"<h1>Internal Error</h1><p>Sorry, there was a problem. Make sure the employer's name is " \
                 "included in the URL query and/or is the correct name.</p> "
-            message2 = e
+            message2 = f"<p>{e}</p>"
             self.wfile.write(message2.encode())
             return
 
