@@ -49,12 +49,12 @@ class handler(BaseHTTPRequestHandler):
             self.wfile.write(message)
             return
 
-        except:
+        except Exception as e:
             self.send_response(500)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            message = "<h1>Internal Error</h1><p>Sorry, there was a problem. Make sure the employer's name is " \
-                "included in the URL query and/or is the correct name.</p> "
+            message = f"<h1>Internal Error</h1><p>Sorry, there was a problem. Make sure the employer's name is " \
+                "included in the URL query and/or is the correct name. Error was {e}</p> "
             self.wfile.write(message.encode())
             return
 
